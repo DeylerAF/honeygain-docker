@@ -1,0 +1,26 @@
+version: "3"
+services:
+    get_honeygain:
+        image: honeygain/honeygain
+        command: -tou-get
+
+    honeygain:
+        image: honeygain/honeygain
+        command: -tou-accept
+            -email ${email}
+            -pass ${pass}
+            -device honeygain_docker
+        restart: always
+        # networks:
+        #     honeygain_network:
+        #         ipv4_address: 172.21.0.10
+# networks:
+#     honeygain_network:
+#         name: honeygain_network
+#         external: true
+#         driver: bridge
+#         ipam:
+#             driver: default
+#             config:
+#                 - subnet: 172.21.0.0/16
+#                 - gateway: 172.21.0.1
