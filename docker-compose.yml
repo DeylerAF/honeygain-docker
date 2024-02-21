@@ -11,6 +11,8 @@ services:
             -pass ${pass}
             -device honeygain_docker
         restart: always
+        depends_on:
+            - get_honeygain
         # networks:
         #     honeygain_network:
         #         ipv4_address: 172.21.0.10
